@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUR BEST STYLE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Bienvenido a YOUR BEST STYLE</h1>
+      <!-- Ícono del carrito -->
+      <a href="{{ url_for('cart') }}" class="cart-icon">
+        <img src="{{ url_for('static', filename='img/cart-icon.gif') }}" alt="Carrito de compras">
+        <span class="cart-count">{{ session.get('cart') | length }}</span>
+      </a>
+    </header>
+    <div class="container">
+      <h2>Productos</h2>
+      <div class="products">
+        {% for product in products %}
+        <div class="product">
+          <h3>{{ product.name }}</h3>
+          <p>Precio: ${{ product.price }}</p>
+          <a href="{{ url_for('add_to_cart', product_id=product.id) }}">
+            <button>Agregar al carrito</button>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Imagen de métodos de pago -->
+    <img src="{{ url_for('static', filename='img/metodos-pago.png') }}" alt="Métodos de pago" class="payment-methods">
+  </body>
+</html>

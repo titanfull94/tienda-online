@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Checkout</h1>
+    </header>
+    <div class="container">
+      <h2>Selecciona tu método de pago</h2>
+      <form action="/pay-with-paypal" method="post">
+        <button type="submit" class="paypal-button">Pagar con PayPal</button>
+      </form>
+      <form action="/pay-with-card" method="post">
+        <button type="submit" class="credit-card-button">Pagar con Tarjeta de Crédito</button>
+      </form>
+    </div>
+  </body>
+</html>

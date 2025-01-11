@@ -1,0 +1,107 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    position: relative;
+    background-color: #cc00ff;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* Estilo del ícono del carrito */
+.cart-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    text-decoration: none;
+}
+
+.cart-icon img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    filter: invert(1); /* Cambia los colores a blanco si el fondo es oscuro */
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 7px;
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+}
+
+/* Productos */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.products {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.product {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    width: 30%;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.product h3 {
+    margin: 10px 0;
+}
+
+.product button {
+    padding: 10px 15px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product button:hover {
+    background: #0056b3;
+}
+
+/* Imagen fija de métodos de pago */
+.payment-methods {
+    position: fixed;
+    bottom: 10px; /* Espacio desde el borde inferior */
+    right: 10px; /* Espacio desde el borde derecho */
+    width: 100px; /* Ajusta el tamaño según necesites */
+    height: auto; /* Mantiene la proporción de la imagen */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+.payment-methods:hover {
+    opacity: 0.8; /* Efecto visual al pasar el cursor por encima */
+}

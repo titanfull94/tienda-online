@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagar con Tarjeta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Pagar con Tarjeta de Crédito</h1>
+    </header>
+    <div class="container">
+      <form action="/complete-payment" method="post">
+        <label for="card-number">Número de Tarjeta</label>
+        <input type="text" id="card-number" name="card_number" required>
+        <label for="expiration-date">Fecha de Expiración</label>
+        <input type="text" id="expiration-date" name="expiration_date" placeholder="MM/AA" required>
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" name="cvv" required>
+        <label for="card-holder">Nombre del Titular</label>
+        <input type="text" id="card-holder" name="card_holder" required>
+        <button type="submit" class="complete-payment-button">Completar Pago</button>
+      </form>
+    </div>
+  </body>
+</html>
