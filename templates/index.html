@@ -12,7 +12,7 @@
       <!-- Ícono del carrito -->
       <a href="{{ url_for('cart') }}" class="cart-icon">
         <img src="{{ url_for('static', filename='img/cart-icon.gif') }}" alt="Carrito de compras">
-        <span class="cart-count">{{ session.get('cart') | length }}</span>
+        <span class="cart-count">{{ session.get('cart', []) | length }}</span>
       </a>
     </header>
     <div class="container">
@@ -29,8 +29,5 @@
         {% endfor %}
       </div>
     </div>
-
-    <!-- Imagen de métodos de pago -->
-    <img src="{{ url_for('static', filename='img/metodos-pago.png') }}" alt="Métodos de pago" class="payment-methods">
   </body>
 </html>

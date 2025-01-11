@@ -11,7 +11,6 @@
       <h1>Carrito de Compras</h1>
     </header>
     <div class="container">
-      <h2>Productos en el carrito</h2>
       {% if cart %}
       <ul>
         {% for item in cart %}
@@ -19,12 +18,7 @@
         {% endfor %}
       </ul>
       <p>Total: ${{ total }}</p>
-      <a href="{{ url_for('checkout') }}">
-        <button>Ir al checkout</button>
-      </a>
-      <a href="{{ url_for('clear_cart') }}">
-        <button>Vaciar carrito</button>
-      </a>
+      <a href="{{ url_for('clear_cart') }}"><button>Vaciar carrito</button></a>
       {% else %}
       <p>Tu carrito está vacío.</p>
       {% endif %}
