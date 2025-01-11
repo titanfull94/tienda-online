@@ -1,0 +1,4 @@
+Flask
+paypalrestsdk
+stripe
+gunicorn
