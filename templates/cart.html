@@ -12,16 +12,64 @@
     </header>
     <div class="container">
       {% if cart %}
-      <ul>
-        {% for item in cart %}
-        <li>{{ item.name }} - ${{ item.price }}</li>
-        {% endfor %}
-      </ul>
-      <p>Total: ${{ total }}</p>
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+            <th>Modificar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cart %}
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>${{ item.price }}</td>
+            <td>
+              <input type="number" id="quantity-{{ item.id }}" value="{{ item.quantity }}" min="1">
+            </td>
+            <td>${{ item.price * item.quantity }}</td>
+            <td>
+              <button onclick="updateCart({{ item.id }})">Actualizar</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <p><strong>Total: ${{ total }}</strong></p>
+      <a href="{{ url_for('checkout') }}"><button>Proceder al pago</button></a>
       <a href="{{ url_for('clear_cart') }}"><button>Vaciar carrito</button></a>
       {% else %}
       <p>Tu carrito está vacío.</p>
       {% endif %}
     </div>
+    <script>
+      function updateCart(productId) {
+        const quantityInput = document.getElementById(`quantity-${productId}`);
+        const quantity = parseInt(quantityInput.value, 10);
+
+        fetch(`/update-cart/${productId}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ quantity: quantity })
+        })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            // Recargar la página para mostrar el carrito actualizado
+            location.reload();
+          } else {
+            alert("Error al actualizar el carrito.");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
+    </script>
   </body>
 </html>

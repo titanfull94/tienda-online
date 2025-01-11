@@ -9,7 +9,7 @@ body {
 
 header {
     position: relative;
-    background-color: #cc00ff;
+    background-color: #007bff;
     color: white;
     padding: 15px;
     text-align: center;
@@ -31,7 +31,6 @@ h1 {
     width: 40px;
     height: 40px;
     cursor: pointer;
-    filter: invert(1); /* Cambia los colores a blanco si el fondo es oscuro */
 }
 
 .cart-count {
@@ -44,7 +43,6 @@ h1 {
     font-weight: bold;
     padding: 3px 7px;
     border-radius: 50%;
-    transform: translate(50%, -50%);
 }
 
 /* Productos */
@@ -91,6 +89,24 @@ h1 {
     background: #0056b3;
 }
 
+/* Botón Ver Detalles */
+.details-button {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.details-button:hover {
+    background-color: #0056b3;
+}
+
 /* Imagen fija de métodos de pago */
 .payment-methods {
     position: fixed;
@@ -104,4 +120,90 @@ h1 {
 
 .payment-methods:hover {
     opacity: 0.8; /* Efecto visual al pasar el cursor por encima */
+}
+
+/* Tabla del carrito */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.cart-table th, .cart-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.cart-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.cart-table td input[type="number"] {
+    width: 60px;
+    text-align: center;
+}
+
+.cart-table button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-table button:hover {
+    background-color: #0056b3;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+    color: #007bff;
+    padding: 0 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="tel"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.payment-methods {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.payment-methods button {
+    flex: 0 0 45%;
+    padding: 10px 15px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.payment-methods button:hover {
+    background: #0056b3;
 }

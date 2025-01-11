@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOUR BEST STYLE</title>
+    <title>{{ product.name }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
   <body>
     <header>
-      <h1>Bienvenido a YOUR BEST STYLE</h1>
+      <h1>{{ product.name }}</h1>
       <!-- Ícono del carrito -->
       <a href="{{ url_for('cart') }}" class="cart-icon">
         <img src="{{ url_for('static', filename='img/cart-icon.gif') }}" alt="Carrito de compras">
@@ -16,23 +16,14 @@
       </a>
     </header>
     <div class="container">
-      <h2>Productos</h2>
-      <div class="products">
-        {% for product in products %}
-        <div class="product">
-          <img src="{{ url_for('static', filename='img/' + product.image) }}" alt="{{ product.name }}" class="product-image">
-          <h3>{{ product.name }}</h3>
-          <p>Precio: ${{ product.price }}</p>
-          <!-- Enlace a la página de detalles del producto -->
-          <a href="{{ url_for('product_detail', product_id=product.id) }}" class="details-button">Ver detalles</a>
-          <div class="add-to-cart">
-            <button onclick="changeQuantity(-1, {{ product.id }})">-</button>
-            <input type="number" id="quantity-{{ product.id }}" value="1" min="1">
-            <button onclick="changeQuantity(1, {{ product.id }})">+</button>
-            <button onclick="addToCart({{ product.id }})">Agregar al carrito</button>
-          </div>
-        </div>
-        {% endfor %}
+      <img src="{{ url_for('static', filename='img/' + product.image) }}" alt="{{ product.name }}" class="product-image">
+      <p>Precio: ${{ product.price }}</p>
+      <p>Descripción: {{ product.description }}</p>
+      <div class="add-to-cart">
+        <button onclick="changeQuantity(-1, {{ product.id }})">-</button>
+        <input type="number" id="quantity-{{ product.id }}" value="1" min="1">
+        <button onclick="changeQuantity(1, {{ product.id }})">+</button>
+        <button onclick="addToCart({{ product.id }})">Agregar al carrito</button>
       </div>
     </div>
     <script>

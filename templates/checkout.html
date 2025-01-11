@@ -3,21 +3,62 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout</title>
+    <title>Proceder al Pago</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
   <body>
     <header>
-      <h1>Checkout</h1>
+      <h1>Proceder al Pago</h1>
     </header>
     <div class="container">
-      <h2>Selecciona tu método de pago</h2>
-      <form action="/pay-with-paypal" method="post">
-        <button type="submit" class="paypal-button">Pagar con PayPal</button>
-      </form>
-      <form action="/pay-with-card" method="post">
-        <button type="submit" class="credit-card-button">Pagar con Tarjeta de Crédito</button>
+      <form action="/confirm-payment" method="post">
+        <fieldset>
+          <legend>Datos de Envío</legend>
+          <!-- Nombre y Apellido -->
+          <label for="first-name">Nombre:</label>
+          <input type="text" id="first-name" name="first_name" required>
+          
+          <label for="last-name">Apellido:</label>
+          <input type="text" id="last-name" name="last_name" required>
+
+          <!-- Dirección -->
+          <label for="address">Dirección (Calle y Número):</label>
+          <input type="text" id="address" name="address" required>
+
+          <label for="address-details">Detalles adicionales (Apartamento, Edificio, etc.):</label>
+          <input type="text" id="address-details" name="address_details">
+
+          <!-- Ciudad, Estado, Código Postal y Teléfono -->
+          <label for="city">Ciudad:</label>
+          <input type="text" id="city" name="city" required>
+
+          <label for="state">Estado/Provincia:</label>
+          <input type="text" id="state" name="state" required>
+
+          <label for="postal-code">Código Postal:</label>
+          <input type="text" id="postal-code" name="postal_code" required>
+
+          <label for="phone">Teléfono de contacto:</label>
+          <input type="tel" id="phone" name="phone" required>
+
+          <!-- Correo electrónico -->
+          <label for="email">Correo Electrónico:</label>
+          <input type="email" id="email" name="email" required>
+        </fieldset>
+
+        <fieldset>
+          <legend>Seleccione el Método de Pago</legend>
+          <div class="payment-methods">
+            <!-- Botón para PayPal -->
+            <button type="submit" formaction="/pay-with-paypal" class="paypal-button">Pagar con PayPal</button>
+            <!-- Botón para Tarjeta de Crédito -->
+            <button type="submit" formaction="/pay-with-card" class="credit-card-button">Pagar con Tarjeta de Crédito</button>
+          </div>
+        </fieldset>
       </form>
     </div>
+    <footer>
+      <p>Gracias por tu compra. Si tienes dudas, contáctanos.</p>
+    </footer>
   </body>
 </html>
